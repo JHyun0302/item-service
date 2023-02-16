@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link th:href="@{/css/bootstrap.min.css}"
-          href="../../static/css/bootstrap.min.css" rel="stylesheet">
+          href="../css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container {
             max-width: 560px;
@@ -17,7 +17,7 @@
         <h2>상품 상세</h2>
     </div>
 
-    <!--    추가: 조건이 true이면 '저장 완료!' 랜더링함! -->
+    <!--    추가: status=true, '저장 완료!' -->
     <h2 th:if="${param.status}" th:text="'저장 완료!'"></h2>
 
     <div>
