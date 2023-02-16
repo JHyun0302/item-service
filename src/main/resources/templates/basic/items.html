@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- 절대 경로로 바꿔주기-->
     <link th:href="@{/css/bootstrap.min.css}"
-          href="../../static/css/bootstrap.min.css" rel="stylesheet">
+          href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" style="max-width: 600px">
@@ -34,7 +34,7 @@
             <tbody>
             <!--            model에 있는 items를 꺼내서 item에 넣어줌-->
             <tr th:each="item : ${items}">
-                <!--                th:text -> 뒤의 데이터 삽입, 정적일 때는 href 주소 & 동적일 때는 th:href 주소, {itemId}가 뒤 괄호 값으로 치환됨-->
+                <!--                정적일 때는 href 주소 & 동적일 때는 th:href 주소 / {itemId}가 뒤 괄호 값으로 치환됨-->
                 <td><a href="item.html" th:href="@{/basic/items/{itemId}(itemId=${item.id})}"
                        th:text="${item.id}">회원id</a></td>
                 <td><a href="item.html" th:href="@{|/basic/items/${item.id}|}"
@@ -42,7 +42,6 @@
                 <td th:text="${item.price}">10000</td>
                 <td th:text="${item.quantity}">10</td>
             </tr>
-
             </tbody>
         </table>
     </div>
