@@ -11,10 +11,13 @@
 </head>
 <body>
 <div class="container">
+
     <div class="py-5 text-center">
         <h2>상품 등록 폼</h2></div>
+
     <h4 class="mb-3">상품 입력</h4>
-    <!--    th:action에 값을 생략하면 현재 URL(="/basic/items/add")에 data 넘김-->
+
+    <!--    th:action에 값을 생략하면 현재 URL(="/basic/items/add")에 data 넘김(=post)-->
     <form action="item.html" th:action method="post">
         <div>
             <label for="itemName">상품명</label>
