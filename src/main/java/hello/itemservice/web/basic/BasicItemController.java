@@ -13,14 +13,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/basic/items")
-@RequiredArgsConstructor //final이 붙은 객체를 이용해 construct 생성해줌
+@RequiredArgsConstructor
 public class BasicItemController {
-    private final ItemRepository itemRepository; //ItemRespsitory도 @Repository로 빈으로 등록되어 있음.
 
-/*    @Autowired //생성자가 1개면 @Autowired 생략가능
-    public BasicItemController(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
-    }*/
+    private final ItemRepository itemRepository;
 
     @GetMapping
     public String items(Model model) {
@@ -65,8 +61,8 @@ public class BasicItemController {
          * 1. item객체에 set 대신 해줌
          * 2. model.addAttribute 대신해줌. attributeName: @ModelAttribute("item")
          *
-         * @ModelAttribute의 이름 생략시 모델에 저장될 클래스 명의 첫글자를 소문자로 변경한게 곧 모델 이름이 됨.
-         * ex) @ModelAttribute HelloWorld helloworld -> 모델 이름: helloWorld
+         * @ModelAttribute의 이름 생략시: 클래스 명의 첫글자를 소문자로 변경한게 이름이 됨.
+         * ex) @ModelAttribute HelloWorld world -> 모델 이름: helloWorld
          */
         itemRepository.save(item);
 //        model.addAttribute("item", item);
@@ -74,13 +70,13 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    //    @PostMapping("/add")
+    //    @PostMapping("/add") //이름 지정X
     public String addItemV3(@ModelAttribute Item item) {
         itemRepository.save(item);
         return "basic/item";
     }
 
-    //    @PostMapping("/add")
+    //    @PostMapping("/add") //@ModelAttribute 생략
     public String addItemV4(Item item) {
         /**
          * int, String, Integer 같은 단순 타입 = @RequestParam
@@ -104,8 +100,8 @@ public class BasicItemController {
         //view template에 이 값이 있으면 저장되었음
         return "redirect:/basic/items/{itemId}";
         /**
-         * redirectAttributes의 attributeName: "itemId", value: savedItem.getId()가 {itemId}로 치환됨
-         * 나머지 status 등은 쿼리 파라미터로 넘어감
+         * redirectAttributes.attributeName: "itemId", value: savedItem.getId()가 {itemId}로 치환됨
+         * 나머지 status: 쿼리 파라미터로 넘어감
          */
     }
 
