@@ -2,7 +2,7 @@
 
 <img src="https://github.com/JHyun0302/server/assets/60764632/f59dacaf-681a-43ef-a9b9-a5a5b03b402a"  width="600" height="300"/>
 
-### 수업명 : [스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1)
+### 강의명 : [스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1)
 
 - 지식공유자 : 김영한
 
